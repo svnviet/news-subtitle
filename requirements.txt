@@ -3,6 +3,11 @@ uvicorn[standard]>=0.30,<1.0
 pydantic>=2.6,<3.0
 python-multipart>=0.0.9
 faster-whisper>=1.0,<2.0
+# Decoding audio ourselves via ffmpeg (see app/whisper_timing.py) bypasses a
+# real version mismatch between faster-whisper's own PyAV call and newer
+# PyAV releases -- numpy is what carries the decoded samples across that
+# boundary. Requires an `ffmpeg` binary on PATH (or FFMPEG_BINARY set).
+numpy>=1.26,<3.0
 
 # dev/test only
 pytest>=8.0,<9.0

@@ -7,3 +7,8 @@ __pycache__/
 .env
 .env.*
 !.env.example
+
+# NSSM service stdout/stderr (configured to write into this directory on
+# the deployment machine -- runtime output, not source)
+service.log
+service-*.log
